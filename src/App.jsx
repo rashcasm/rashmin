@@ -394,21 +394,20 @@ function App() {
               style={{ textAlign: "center", padding: "20px" }}
             >
               <p>
-                I’m a 3rd-year Computer Science & Business Systems and 100xDevs
-                student currently working as
-                <strong> SDE Intern (Algorithms)</strong> and<strong> Quant Intern</strong> at startups.
+                4th-year Computer Science & Business Systems student from Nagpur,
+                currently working as a <strong>Quant Developer</strong> at{" "}
+                <strong>WIN Capital Funds</strong> - building data pipelines,
+                signal intelligence platforms, and trading infrastructure in Python.
               </p>
               <p>
-                I’ve graduated from elite blockchain fellowships like
-                <strong> Ackee – School of Solana</strong> and{" "}
-                <strong> Turbin3</strong> Builders Cohort. I ship across the
-                stack - from <strong>MERN</strong> to low-level
-                <strong> Rust</strong>.
+                Previously interned as an <strong>Algo Trading Developer</strong>,
+                building stock screeners and breakout strategies across 2000+ equities.
+                I've also shipped on-chain programs through{" "}
+                <strong>Ackee School of Solana</strong> and the{" "}
+                <strong>Turbin3</strong> Builders Cohort.
               </p>
               <p>
-                {" "}
-                Learning to build scalable, production-ready systems with a
-                strong backend-first mindset.
+                I like building things that are slightly beyond what I think I can build.
               </p>
             </section>
 
