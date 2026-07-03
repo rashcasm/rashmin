@@ -59,7 +59,7 @@ function App() {
       role: "Quant Intern",
       company: "WIN Capital Operating",
       duration: "March 2026 - Present",
-      location: "Remote",
+      location: "Remote (International)",
       details: [
         "Building end-to-end data infrastructure and automated pipelines for ingesting and processing multi-market equity data.",
         "Researching and backtesting systematic trading strategies using technical indicators; documenting performance metrics and drawdown analysis; translating quantitative hypotheses into testable models.",
@@ -68,7 +68,7 @@ function App() {
     {
       role: "SDE Intern (Backend & Algorithms)",
       company: "AimFi Capital",
-      duration: "Jan 2026 - Present",
+      duration: "Jan 2026 - July 2026",
       location: "Remote (Hyderabad)",
       details: [
         "Built a real-time screening engine processing 2200+ NSE & BSE equities for 8+ technical pattern types using Python.",
