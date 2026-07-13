@@ -56,23 +56,24 @@ function App() {
 
   const experiences = [
     {
-      role: "Quant Intern",
-      company: "WIN Capital Operating",
+      role: "Quantitative Software Developer Intern",
+      company: "WIN Capital Funds",
       duration: "March 2026 - Present",
       location: "Remote (International)",
       details: [
-        "Building end-to-end data infrastructure and automated pipelines for ingesting and processing multi-market equity data.",
-        "Researching and backtesting systematic trading strategies using technical indicators; documenting performance metrics and drawdown analysis; translating quantitative hypotheses into testable models.",
+        "Built an automated data pipeline that delivers clean, ready-to-use daily market data (NYSE and crypto) to the trading team, by ingesting and processing raw price feeds with Python and PostgreSQL.",
+        "Removed a full day of lag in daily price data by building an intraday-to-daily aggregation process, after catching accuracy gaps in yfinance through automated cross-checks.",
+        "Made deployments repeatable and error-free across development and production by packaging the pipeline with Docker.",
       ],
     },
     {
-      role: "SDE Intern (Backend & Algorithms)",
+      role: "Algorithmic Trading Intern",
       company: "AimFi Capital",
       duration: "Jan 2026 - July 2026",
       location: "Remote (Hyderabad)",
       details: [
-        "Built a real-time screening engine processing 2200+ NSE & BSE equities for 8+ technical pattern types using Python.",
-        "Delivered ranked watchlists of equities to support discretionary trading decisions, including breakouts, trendline analysis, bullish & bearish divergence signals.",
+        "Cut daily stock screening from 2-3 days of manual chart-checking to under 5 minutes, by building a real-time engine that scans 2,200+ NSE & BSE stocks for 8+ technical chart patterns in Python.",
+        "Gave traders a ready-to-act shortlist every day by delivering ranked watchlists that automatically flag breakouts, trendline breaks, and bullish & bearish divergences.",
       ],
     },
     {
@@ -96,13 +97,13 @@ function App() {
       title: "Libraries & Frameworks",
       icon: <Layers size={20} />,
       color: "var(--accent-1)", // Green
-      items: ["Anchor", "React", "Node.js", "MERN", "NumPy", "Pandas"],
+      items: ["Anchor", "React", "Node.js", "MERN", "NumPy", "Pandas", "Matplotlib"],
     },
     {
       title: "Developer Tools",
       icon: <Wrench size={20} />,
       color: "var(--accent-3)", // Pink
-      items: ["Git", "VS Code", "Surfpool", "Postman", "TradingView"],
+      items: ["Git", "Docker", "PostgreSQL", "VS Code", "Surfpool", "Postman", "TradingView"],
     },
     // {
     //   title: "Libraries",
@@ -113,6 +114,18 @@ function App() {
   ];
 
   const achievements = [
+    {
+      title: "Copyright: QuantLabs",
+      org: "SW-11555/2026-CO",
+      year: "2026",
+      desc: "Registered copyright for QuantLabs: NLP Based Backtesting Engine and Portfolio Rebalancer.",
+    },
+    {
+      title: "Copyright: Smart Browser Extension",
+      org: "LD-46176/2025-CO",
+      year: "2025",
+      desc: "Registered copyright for Automated Job Application Using a Smart Browser Extension.",
+    },
     {
       title: "First Position, Blockchain Nexus",
       org: "IIT Kanpur",
@@ -160,12 +173,45 @@ function App() {
   const projects = [
         {
       title: "QuantLabs",
-      tech: "Python, MERN",
+      tech: "React, Node.js, Python",
       year: "2026",
-      link: "https://github.com/rashcasm/",
+      link: "https://quant-ecru-seven.vercel.app/",
       details: [
-        "Built a high-performance execution engine processing historical OHLCV data to calculate institutional risk metrics including Sharpe Ratio and Max Drawdown.",
-        "Implemented an automated portfolio rebalancer enforcing strict risk management and proactive options hedging against market volatility (using market sentiments)",
+        "Built a trading-strategy sandbox that lets a user describe a strategy in plain English and automatically turns it into runnable Python backtest code.",
+        "Created an engine that tests strategies on historical price data and reports the risk numbers investors care about, such as Sharpe Ratio and maximum drawdown.",
+        "Added an automatic portfolio rebalancer that controls risk and hedges with options based on live market conditions.",
+      ],
+    },
+    {
+      title: "WhyLine",
+      tech: "Python, FastAPI, React, TypeScript",
+      year: "2026",
+      link: "https://github.com/rashcasm/WhyLine",
+      details: [
+        "Built a real-time anomaly detection system monitoring 10 crypto symbols concurrently, flagging statistically significant price moves (|z| ≥ 3) and volume surges (z ≥ 3.5) within a single 1-minute candle using rolling z-scores and a streaming Isolation Forest over live Binance data.",
+        "Removed the dashboard's cold-start gap by backfilling and back-scanning 1,000 candles per symbol (~16 hours of annotated history) before handing off to live WebSocket streaming.",
+        "Validated detection correctness with 33 passing automated tests spanning z-score math, outlier flagging, and API parsing, built as a fully offline test suite with a 4-person team.",
+      ],
+    },
+    {
+      title: "Bhishi",
+      tech: "TypeScript, Compact, Midnight (ZK)",
+      year: "2026",
+      link: "https://github.com/rashcasm/bhishi",
+      details: [
+        "Eliminated organizer-fraud risk in traditional chit funds by holding 100% of member contributions in trustless on-chain escrow via an 8-circuit smart contract on the Midnight privacy blockchain.",
+        "Protected members from publicly signaling financial distress by sealing every round's bid behind a zero-knowledge commitment cryptographically verified against its reveal.",
+        "Verified the auction and payout logic with 14 passing tests covering sealed-bid integrity, one-win-per-cycle guarantees, and full-cycle money conservation, using a TypeScript simulator mirroring every on-chain circuit assertion.",
+      ],
+    },
+    {
+      title: "Commit-Mirror",
+      tech: "Python, PyPI Package",
+      year: "2026",
+      link: "https://github.com/rashcasm/portfolio-check",
+      details: [
+        "Solved GitHub's contribution-graph loss for developers exiting private organizations by building and publishing a pip-installable CLI that mirrors commit metadata to a public repo with zero code or diff exposure.",
+        "Enabled fully automated, hands-off operation via daily syncing with cron/Task Scheduler, a dry-run preview mode, and a config-driven setup wizard.",
       ],
     },
     {
@@ -310,7 +356,7 @@ function App() {
       <header className="header">
         <div className="profile-pic-container">
           <img
-            src="/rashmin.jpg"
+            src="/min.jpg"
             alt="Rashmin Chaudhari - Software Engineer (not Rashmi Chaudhari)"
             className="profile-pic"
           />
@@ -356,7 +402,7 @@ function App() {
             <Mail size={20} />
           </a>
           <a
-            href="/resume_may.pdf"
+            href="/master_resume.pdf"
             download="Rashmin_Resume.pdf"
             className="icon-btn"
           >
