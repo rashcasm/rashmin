@@ -37,52 +37,55 @@ function App() {
   };
 
   // Custom theme for the calendar to match your pastel look
+  // Calendar ramp: pc-plastic empty cell -> bubbletech pink
   const calendarTheme = {
-    light: [
-      "#e8e8e8", // Level 0 (Empty) - Light Gray22
-      "#9F8FEF", // Level 1 - Very Light Lavender
-      "#7A6DDF", // Level 2 - Your Main Lavender Accent
-      "#7A6DDF", // Level 3 - Medium Purple
-      "#7A6DDF", // Level 4 - Darker Purple
-    ],
-    dark: [
-      "#e8e8e8", // Level 0 (Empty) - Light Gray
-      "#9F8FEF", // Level 1 - Very Light Lavender
-      "#7A6DDF", // Level 2 - Your Main Lavender Accent
-      "#7A6DDF", // Level 3 - Medium Purple
-      "#7A6DDF",
-    ],
+    light: ["#e4ddd2", "#ffb4c5", "#ff8ba6", "#ff7392", "#ff6183"],
+    dark: ["#e4ddd2", "#ffb4c5", "#ff8ba6", "#ff7392", "#ff6183"],
   };
 
   const experiences = [
     {
       role: "Quantitative Software Developer Intern",
-      company: "WIN Capital Funds",
-      duration: "March 2026 - Present",
+      company: "WIN Private Equity Ltd",
+      duration: "March 2026 – Present",
       location: "Remote (International)",
       details: [
-        "Built an automated data pipeline that delivers clean, ready-to-use daily market data (NYSE and crypto) to the trading team, by ingesting and processing raw price feeds with Python and PostgreSQL.",
+        "Built an automated data pipeline that delivers clean daily market data for 5,500+ equities and futures (NYSE and crypto) to the trading team, ingesting and processing raw price feeds with Python and PostgreSQL.",
+        "Developed 10+ systematic trading strategies on top of the pipeline, with the best performers reaching a profit factor of ≈3 in backtests.",
         "Removed a full day of lag in daily price data by building an intraday-to-daily aggregation process, after catching accuracy gaps in yfinance through automated cross-checks.",
-        "Made deployments repeatable and error-free across development and production by packaging the pipeline with Docker.",
+        "Made deployments repeatable across development and production by packaging the pipeline with Docker.",
+      ],
+    },
+    {
+      role: "Founder’s Office — Product",
+      company: "eigi.ai",
+      duration: "Aug 2026 – Present",
+      location: "Remote (India)",
+      details: [
+        "Working directly with the founder across product, engineering, and growth at an early-stage AI startup.",
+        "Scoping technical decisions and third-party integrations (Meta, GCP, Anthropic) alongside the engineering team.",
+        "Stepping into strategy, hiring, and whatever else the week requires.",
       ],
     },
     {
       role: "Algorithmic Trading Intern",
       company: "AimFi Capital",
-      duration: "Jan 2026 - July 2026",
-      location: "Remote (Hyderabad)",
+      duration: "Jan 2026 – July 2026",
+      location: "Remote (India)",
       details: [
-        "Cut daily stock screening from 2-3 days of manual chart-checking to under 5 minutes, by building a real-time engine that scans 2,200+ NSE & BSE stocks for 8+ technical chart patterns in Python.",
+        "Cut daily stock screening from 2–3 days of manual chart-checking to under 5 minutes, by building a real-time engine that scans 2,200+ NSE & BSE stocks for 8+ technical chart patterns in Python.",
         "Gave traders a ready-to-act shortlist every day by delivering ranked watchlists that automatically flag breakouts, trendline breaks, and bullish & bearish divergences.",
       ],
     },
     {
       role: "Co-Founder",
       company: "Daemons Build",
-      duration: "Jan 2026 - Present",
+      duration: "Jan 2026 – Present",
       location: "Remote (Nagpur)",
-      details: ["https://daemonsbuild.me",
-        "Whether you need high-scale Web2 infrastructure, automated Python trading pipelines, or systems built close to the metal, we ship production-ready code."],
+      details: [
+        "https://daemonsbuild.me",
+        "Whether you need high-scale Web2 infrastructure, automated Python trading pipelines, or systems built close to the metal, we ship production-ready code.",
+      ],
     },
   ];
   // Categorized Skills Data
@@ -90,27 +93,27 @@ function App() {
     {
       title: "Languages",
       icon: <Code2 size={20} />,
-      color: "var(--accent-4)", // Blue
-      items: ["Rust", "Python", "C++", "SQL", "JavaScript", "TypeScript"],
+      color: "var(--accent-4)",
+      items: ["Python", "SQL", "Rust", "C++", "TypeScript", "JavaScript"],
+    },
+    {
+      title: "Quant & Data",
+      icon: <Zap size={20} />,
+      color: "var(--accent-5)",
+      items: ["pandas", "NumPy", "Matplotlib", "Backtesting", "Isolation Forest", "TradingView"],
     },
     {
       title: "Libraries & Frameworks",
       icon: <Layers size={20} />,
-      color: "var(--accent-1)", // Green
-      items: ["Anchor", "React", "Node.js", "MERN", "NumPy", "Pandas", "Matplotlib"],
+      color: "var(--accent-1)",
+      items: ["FastAPI", "React", "Node.js", "MERN", "Anchor"],
     },
     {
       title: "Developer Tools",
       icon: <Wrench size={20} />,
-      color: "var(--accent-3)", // Pink
-      items: ["Git", "Docker", "PostgreSQL", "VS Code", "Surfpool", "Postman", "TradingView"],
+      color: "var(--accent-3)",
+      items: ["Git", "Docker", "PostgreSQL", "GCP", "Postman", "Surfpool"],
     },
-    // {
-    //   title: "Libraries",
-    //   icon: <Library size={20} />,
-    //   color: "var(--accent-1)", // Lavender
-    //   items: ["pandas", "NumPy", "Matplotlib"]
-    // }
   ];
 
   const achievements = [
@@ -171,14 +174,14 @@ function App() {
   ];
 
   const projects = [
-        {
+    {
       title: "QuantLabs",
       tech: "React, Node.js, Python",
       year: "2026",
       link: "https://quant-ecru-seven.vercel.app/",
       details: [
-        "Built a trading-strategy sandbox that lets a user describe a strategy in plain English and automatically turns it into runnable Python backtest code.",
-        "Created an engine that tests strategies on historical price data and reports the risk numbers investors care about, such as Sharpe Ratio and maximum drawdown.",
+        "Built a trading-strategy sandbox that turns a plain-English strategy description into runnable Python backtest code, shipping with 8+ pre-built strategies.",
+        "Wrote a backtesting engine that simulates execution latency for realistic fills and reports Sharpe ratio, maximum drawdown, and other risk metrics on historical price data.",
         "Added an automatic portfolio rebalancer that controls risk and hedges with options based on live market conditions.",
       ],
     },
@@ -189,19 +192,8 @@ function App() {
       link: "https://github.com/rashcasm/WhyLine",
       details: [
         "Built a real-time anomaly detection system monitoring 10 crypto symbols concurrently, flagging statistically significant price moves (|z| ≥ 3) and volume surges (z ≥ 3.5) within a single 1-minute candle using rolling z-scores and a streaming Isolation Forest over live Binance data.",
-        "Removed the dashboard's cold-start gap by backfilling and back-scanning 1,000 candles per symbol (~16 hours of annotated history) before handing off to live WebSocket streaming.",
+        "Removed the dashboard’s cold-start gap by backfilling and back-scanning 1,000 candles per symbol (~16 hours of annotated history) before handing off to live WebSocket streaming.",
         "Validated detection correctness with 33 passing automated tests spanning z-score math, outlier flagging, and API parsing, built as a fully offline test suite with a 4-person team.",
-      ],
-    },
-    {
-      title: "Bhishi",
-      tech: "TypeScript, Compact, Midnight (ZK)",
-      year: "2026",
-      link: "https://github.com/rashcasm/bhishi",
-      details: [
-        "Eliminated organizer-fraud risk in traditional chit funds by holding 100% of member contributions in trustless on-chain escrow via an 8-circuit smart contract on the Midnight privacy blockchain.",
-        "Protected members from publicly signaling financial distress by sealing every round's bid behind a zero-knowledge commitment cryptographically verified against its reveal.",
-        "Verified the auction and payout logic with 14 passing tests covering sealed-bid integrity, one-win-per-cycle guarantees, and full-cycle money conservation, using a TypeScript simulator mirroring every on-chain circuit assertion.",
       ],
     },
     {
@@ -210,18 +202,18 @@ function App() {
       year: "2026",
       link: "https://github.com/rashcasm/portfolio-check",
       details: [
-        "Solved GitHub's contribution-graph loss for developers exiting private organizations by building and publishing a pip-installable CLI that mirrors commit metadata to a public repo with zero code or diff exposure.",
+        "Solved GitHub’s contribution-graph loss for developers exiting private organizations by building and publishing a pip-installable CLI that mirrors commit metadata to a public repo with zero code or diff exposure.",
         "Enabled fully automated, hands-off operation via daily syncing with cron/Task Scheduler, a dry-run preview mode, and a config-driven setup wizard.",
       ],
     },
     {
-      title: "Ekonos",
-      tech: "Rust, Solana, Anchor",
+      title: "Quill.ai",
+      tech: "JavaScript, Chrome Extensions, AI",
       year: "2025",
-      link: "https://github.com/rashcasm/ekonos-v1",
+      link: "https://github.com/rashcasm/form_fill_mini",
       details: [
-        "Started as the capstone project under turbin3.org (The Solana Talent Engine).",
-        "Designing a protocol enabling fractional ownership of assets on Solana.",
+        "Built a Google Chrome extension that generates AI-based responses and auto-fills web forms.",
+        "Implemented DOM parsing and field detection to inject context-aware responses directly into forms.",
       ],
     },
     {
@@ -235,16 +227,6 @@ function App() {
       ],
     },
     {
-      title: "Automated Market Maker (AMM)",
-      tech: "Rust, Solana, Anchor",
-      year: "2025",
-      link: "https://github.com/rashcasm/anchor-amm",
-      details: [
-        "Built an Automated Market Maker smart contract on Solana.",
-        "Implemented liquidity pools, swaps, and LP token minting using Anchor framework.",
-      ],
-    },
-    {
       title: "Minigrep",
       tech: "Rust, CLI",
       year: "2025",
@@ -255,13 +237,34 @@ function App() {
       ],
     },
     {
-      title: "Quill.ai",
-      tech: "JavaScript, Chrome Extensions, AI",
-      year: "2025",
-      link: "https://github.com/rashcasm/form_fill_mini",
+      title: "Bhishi",
+      tech: "TypeScript, Compact, Midnight (ZK)",
+      year: "2026",
+      link: "https://github.com/rashcasm/bhishi",
       details: [
-        "Built a Google Chrome extension that generates AI-based responses and auto-fills web forms.",
-        "Implemented DOM parsing and field detection to inject context-aware responses directly into forms.",
+        "Eliminated organizer-fraud risk in traditional chit funds by holding 100% of member contributions in trustless on-chain escrow via an 8-circuit smart contract on the Midnight privacy blockchain.",
+        "Protected members from publicly signaling financial distress by sealing every round’s bid behind a zero-knowledge commitment cryptographically verified against its reveal.",
+        "Verified the auction and payout logic with 14 passing tests covering sealed-bid integrity, one-win-per-cycle guarantees, and full-cycle money conservation, using a TypeScript simulator mirroring every on-chain circuit assertion.",
+      ],
+    },
+    {
+      title: "Ekonos",
+      tech: "Rust, Solana, Anchor",
+      year: "2025",
+      link: "https://github.com/rashcasm/ekonos-v1",
+      details: [
+        "Started as the capstone project under turbin3.org (The Solana Talent Engine).",
+        "Designing a protocol enabling fractional ownership of assets on Solana.",
+      ],
+    },
+    {
+      title: "Automated Market Maker (AMM)",
+      tech: "Rust, Solana, Anchor",
+      year: "2025",
+      link: "https://github.com/rashcasm/anchor-amm",
+      details: [
+        "Built an Automated Market Maker smart contract on Solana.",
+        "Implemented liquidity pools, swaps, and LP token minting using Anchor framework.",
       ],
     },
     {
@@ -291,7 +294,7 @@ function App() {
       role: "Speaker and Instructor",
       year: "2025",
       details: [
-        "Conducted a hands-on workshop titled 'Get On-Chain' for 70+ participants.",
+        "Conducted a hands-on workshop titled ‘Get On-Chain’ for 70+ participants.",
         "Introduced blockchain fundamentals and guided attendees to deploy their first dApp using Noah.ai.",
       ],
     },
@@ -362,8 +365,8 @@ function App() {
           />
         </div>
 
-        <h1><strong>RASHMIN CHAUDHARI</strong></h1>
-        <div className="tagline">MERN | ALGO-TRADING | FINTECH | RUST</div>
+        <h1>Rashmin Chaudhari</h1>
+        <div className="tagline">QUANT INFRA | AI | FOUNDER’S OFFICE</div>
 
         <div className="socials">
           <a
@@ -437,23 +440,29 @@ function App() {
           <>
             <section
               className="card"
-              style={{ textAlign: "center", padding: "20px" }}
+              style={{ textAlign: "left", padding: "24px 26px" }}
             >
               <p>
-                4th-year Computer Science & Business Systems student from Nagpur,
-                currently working as a <strong>Quant Developer</strong> at{" "}
-                <strong>WIN Capital Funds</strong> - building data pipelines,
-                signal intelligence platforms, and trading infrastructure in Python.
+                Final-year Computer Science & Business Systems student from
+                Nagpur (CGPA 9.71), currently building quant trading
+                infrastructure as a <strong>Quantitative Software Developer</strong>{" "}
+                at <strong>WIN Private Equity Ltd</strong> — daily market data
+                pipelines across 5,500+ equities and futures, and 10+ systematic
+                strategies on top of them.
               </p>
               <p>
-                Previously interned as an <strong>Algo Trading Developer</strong>,
-                building stock screeners and breakout strategies across 2000+ equities.
-                I've also shipped on-chain programs through{" "}
-                <strong>Ackee School of Solana</strong> and the{" "}
-                <strong>Turbin3</strong> Builders Cohort.
+                Alongside that I’m in the <strong>Founder’s Office</strong> at{" "}
+                <strong>eigi.ai</strong>, working with the founder across
+                product, engineering, and growth. Before this I built stock
+                screeners and breakout strategies across 2,200+ equities as an{" "}
+                <strong>Algo Trading Developer</strong> at{" "}
+                <strong>AimFi Capital</strong>.
               </p>
               <p>
-                I like building things that are slightly beyond what I think I can build.
+                I pick up unfamiliar stacks fast — Rust, ZK circuits, and
+                production data engineering all went from zero to shipped in
+                weeks. I like building things that are slightly beyond what I
+                think I can build.
               </p>
             </section>
 
@@ -469,8 +478,9 @@ function App() {
               <h3
                 style={{
                   margin: "0 0 20px 0",
-                  fontSize: "1.1rem",
-                  fontFamily: "var(--font-mono)",
+                  fontSize: "1.5rem",
+                  fontFamily: "var(--font-display)",
+                  fontWeight: 400,
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -495,7 +505,7 @@ function App() {
                   fontSize={14}
                   blockRadius={5}
                   theme={calendarTheme}
-                  style={{ color: "black" }}
+                  style={{ color: "var(--text-color)" }}
                   showColorLegend={false}
                 />
               </div>
@@ -516,7 +526,7 @@ function App() {
                   gap: "12px",
                   fontSize: "1rem",
                   padding: "15px 30px",
-                  backgroundColor: copied ? "var(--accent-2)" : "white", // Turns Mint Green on success
+                  backgroundColor: copied ? "var(--ok)" : "var(--pc-plastic-2)",
                 }}
               >
                 {copied ? <Check size={20} /> : <Coffee size={20} />}
@@ -537,18 +547,7 @@ function App() {
                     <h3 className="card-title" style={{ fontSize: "1.3rem" }}>
                       {exp.role}
                     </h3>
-                    <div
-                      style={{
-                        fontFamily: "var(--font-mono)",
-                        fontSize: "0.85rem",
-                        background: "var(--accent-2)",
-                        display: "inline-block",
-                        padding: "4px 8px",
-                        border: "1px solid black",
-                        marginTop: "6px",
-                        // fontWeight: 'bold'
-                      }}
-                    >
+                    <div className="chip" style={{ background: "var(--accent-2)" }}>
                       {exp.company}
                     </div>
                   </div>
@@ -603,16 +602,17 @@ function App() {
                       alignItems: "center",
                       gap: "10px",
                       marginBottom: "15px",
-                      borderBottom: "2px solid #eee",
+                      borderBottom: "1.5px dashed var(--pc-plastic-4)",
                       paddingBottom: "10px",
                     }}
                   >
-                    <span style={{ color: "black" }}>{cat.icon}</span>
+                    <span style={{ color: "var(--hot)", display: "flex" }}>{cat.icon}</span>
                     <h3
                       style={{
                         margin: 0,
-                        fontSize: "1.2rem",
-                        fontFamily: "var(--font-mono)",
+                        fontSize: "1.35rem",
+                        fontFamily: "var(--font-display)",
+                        fontWeight: 400,
                       }}
                     >
                       {cat.title}
@@ -627,13 +627,14 @@ function App() {
                         key={i}
                         style={{
                           fontFamily: "var(--font-mono)",
-                          fontSize: "0.9rem",
-                          fontWeight: "bold",
+                          fontSize: "0.78rem",
+                          letterSpacing: "0.04rem",
+                          fontWeight: 700,
                           backgroundColor: cat.color,
-                          padding: "8px 14px",
-                          border: "2px solid black",
-                          boxShadow: "3px 3px 0px 0px black",
-                          borderRadius: "4px",
+                          padding: "7px 14px",
+                          border: "1.5px solid var(--border-color)",
+                          boxShadow: "var(--shadow-sm)",
+                          borderRadius: "50vw",
                         }}
                       >
                         {item}
@@ -680,17 +681,7 @@ function App() {
                     <h3 className="card-title" style={{ fontSize: "1.3rem" }}>
                       {project.title}
                     </h3>
-                    <div
-                      style={{
-                        fontFamily: "var(--font-mono)",
-                        fontSize: "0.8rem",
-                        background: "var(--accent-4)",
-                        display: "inline-block",
-                        padding: "2px 6px",
-                        border: "1px solid black",
-                        marginTop: "5px",
-                      }}
-                    >
+                    <div className="chip" style={{ background: "var(--accent-4)" }}>
                       {project.tech}
                     </div>
                   </div>
@@ -740,18 +731,7 @@ function App() {
                     <h3 className="card-title" style={{ fontSize: "1.2rem" }}>
                       {item.event}
                     </h3>
-                    <div
-                      style={{
-                        fontFamily: "var(--font-mono)",
-                        fontSize: "0.85rem",
-                        background: "var(--accent-3)",
-                        display: "inline-block",
-                        padding: "4px 8px",
-                        border: "1px solid black",
-                        marginTop: "6px",
-                        fontWeight: "bold",
-                      }}
-                    >
+                    <div className="chip" style={{ background: "var(--accent-3)" }}>
                       {item.role}
                     </div>
                   </div>

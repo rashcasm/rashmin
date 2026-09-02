@@ -1,15 +1,59 @@
-/* GLOBAL RESET & LAYOUT */
+/* =========================================================
+   RETRO HARDWARE THEME
+   Palette + type inspired by tavus.io's design tokens:
+   pc-plastic / terminal-black / bubbletech / atomic-glow /
+   neon-field / frost / retrograde-lilac / keyboard-tan
+   ========================================================= */
+
 :root {
-  --bg-color: #FDFBF7; /* Cream */
-  --text-color: #1a1a1a;
-  --accent-1: #C4B0FF; /* Lavender */
-  --accent-2: #98FF98; /* Mint */
-  --accent-3: #FFB3BA; /* Pink */
-  --accent-4: #BAE1FF; /* Blue */
-  --border-color: #000000;
-  --shadow: 4px 4px 0px 0px #000000;
-  --font-main: 'Space Grotesk', sans-serif;
-  --font-mono: 'Space Mono', monospace;
+  /* --- primitives --- */
+  --pc-plastic-1: #f7f4ef;
+  --pc-plastic-2: #eae5de;
+  --pc-plastic-3: #e4ddd2;
+  --pc-plastic-4: #d9d0c2;
+  --terminal-black: #140206;
+  --hardware-gray: #28292a;
+
+  --bubbletech-1: #ffb4c5;
+  --bubbletech-4: #ff6183;
+  --atomic-glow-1: #ffb835;
+  --atomic-glow-3: #fd7f00;
+  --atomic-glow-5: #ffe8bc;
+  --neon-field-1: #7cff98;
+  --frost-4: #cbe7ff;
+  --retrograde-lilac-1: #fed7ff;
+  --keyboard-tan-1: #f6c1a8;
+  --floppy-fog-2: #d0c9ed;
+
+  /* --- semantic --- */
+  --bg-color: var(--pc-plastic-1);
+  --bg-alt: var(--pc-plastic-2);
+  --surface: #fffdfa;
+  --text-color: var(--hardware-gray);
+  --border-color: var(--terminal-black);
+
+  /* accent slots consumed by the component styles */
+  --accent-1: var(--atomic-glow-5);      /* warm amber  */
+  --accent-2: var(--keyboard-tan-1);     /* keyboard tan */
+  --accent-3: var(--bubbletech-1);       /* bubble pink */
+  --accent-4: var(--frost-4);            /* CRT blue    */
+  --accent-5: var(--retrograde-lilac-1); /* lilac        */
+  --ok: var(--neon-field-1);             /* phosphor ok  */
+  --hot: var(--bubbletech-4);
+
+  --shadow: 5px 5px 0 0 var(--terminal-black);
+  --shadow-sm: 3px 3px 0 0 var(--terminal-black);
+  --shadow-lg: 8px 8px 0 0 var(--terminal-black);
+  --pressed: inset 3px 3px 0 0 #00000026;
+
+  --radius: 1rem;
+  --radius-sm: 0.5rem;
+  --radius-xs: 0.25rem;
+  --bw: 1.5px;
+
+  --font-main: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-mono: 'Space Mono', ui-monospace, SFMono-Regular, monospace;
 }
 
 * {
@@ -27,11 +71,23 @@
 
 body {
   background-color: var(--bg-color);
+  /* faint plastic-moulding texture */
+  background-image:
+    repeating-linear-gradient(
+      180deg,
+      rgba(20, 2, 6, 0.017) 0px,
+      rgba(20, 2, 6, 0.017) 1px,
+      transparent 1px,
+      transparent 4px
+    );
   color: var(--text-color);
   font-family: var(--font-main);
+  font-size: 16px;
+  line-height: 1.6;
   margin: 0;
   min-height: 100vh;
   width: 100%;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* MAIN CONTAINER */
@@ -39,25 +95,49 @@ body {
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 48px 20px 40px;
   text-align: center;
 }
 
-/* HEADER */
+/* ---------------------------------------------------------
+   HEADER
+   --------------------------------------------------------- */
 .header {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 2.5rem;
-  border-bottom: 2px solid var(--border-color);
-  padding-bottom: 2rem;
+  padding: 2.25rem 1.5rem 2rem;
+  background: var(--surface);
+  border: var(--bw) solid var(--border-color);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* colour strip across the top — old machine badge */
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 10px;
+  background: linear-gradient(
+    to right,
+    var(--bubbletech-4) 0 20%,
+    var(--atomic-glow-3) 20% 40%,
+    var(--atomic-glow-1) 40% 60%,
+    var(--neon-field-1) 60% 80%,
+    var(--frost-4) 80% 100%
+  );
+  border-bottom: var(--bw) solid var(--border-color);
 }
 
 .profile-pic-container {
-  width: 140px;
-  height: 140px;
-  margin-bottom: 1.5rem;
-  border: 2px solid var(--border-color);
+  width: 132px;
+  height: 132px;
+  margin-bottom: 1.25rem;
+  border: var(--bw) solid var(--border-color);
   border-radius: 50%;
   overflow: hidden;
   box-shadow: var(--shadow);
@@ -71,96 +151,120 @@ body {
 }
 
 h1 {
-  font-family: var(--font-mono);
-  font-size: 2.8rem;
-  text-transform: uppercase;
-  margin: 0.5rem 0;
-  letter-spacing: -1.5px;
-  line-height: 1.1;
-  word-wrap: break-word; /* Prevents overflow on tiny screens */
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 9vw, 4.2rem);
+  text-transform: none;
+  margin: 0.4rem 0 0;
+  letter-spacing: -0.02em;
+  line-height: 0.98;
+  word-wrap: break-word;
+}
+
+h1 strong {
+  font-weight: 400;
 }
 
 .tagline {
   font-family: var(--font-mono);
-  font-size: 0.95rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
   background-color: var(--accent-3);
   display: inline-block;
   padding: 8px 16px;
-  border: 2px solid var(--border-color);
-  box-shadow: 3px 3px 0px 0px black;
-  font-weight: bold;
-  margin-top: 10px;
+  border: var(--bw) solid var(--border-color);
+  border-radius: 50vw;
+  box-shadow: var(--shadow-sm);
+  font-weight: 700;
+  margin-top: 1.1rem;
 }
 
 /* SOCIAL ICONS */
 .socials {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
-  flex-wrap: wrap; /* Wraps icons if screen is tiny */
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+  flex-wrap: wrap;
 }
 
 .icon-btn {
-  background: white;
-  border: 2px solid var(--border-color);
-  width: 45px;
-  height: 45px;
-  border-radius: 8px;
+  background: var(--pc-plastic-2);
+  border: var(--bw) solid var(--border-color);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: all 0.2s ease;
-  color: black;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+  color: var(--terminal-black);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 2px 2px 0px 0px black;
+  box-shadow: var(--shadow-sm);
 }
 
 .icon-btn:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0px 0px var(--accent-1);
+  box-shadow: 5px 5px 0 0 var(--terminal-black);
+  background: var(--accent-1);
 }
 
-/* NAVIGATION */
+.icon-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 0 var(--terminal-black), var(--pressed);
+}
+
+/* ---------------------------------------------------------
+   NAVIGATION — keyboard keys
+   --------------------------------------------------------- */
 .nav {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  margin-bottom: 3rem;
-  flex-wrap: wrap; /* CRITICAL: Allows buttons to stack on phone */
+  gap: 0.6rem;
+  margin-bottom: 2.75rem;
+  flex-wrap: wrap;
 }
 
 .nav-btn {
   font-family: var(--font-mono);
-  background: white;
-  color: black;
-  border: 2px solid var(--border-color);
-  padding: 10px 20px;
-  font-weight: bold;
-  font-size: 1rem;
+  background: var(--pc-plastic-2);
+  color: var(--terminal-black);
+  border: var(--bw) solid var(--border-color);
+  padding: 10px 18px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.08rem;
   cursor: pointer;
-  box-shadow: 3px 3px 0px 0px black;
-  transition: all 0.2s;
-  border-radius: 6px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+  border-radius: var(--radius-sm);
 }
 
 .nav-btn:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px 0px black;
+  box-shadow: 5px 5px 0 0 var(--terminal-black);
+  background: var(--accent-1);
 }
 
 .nav-btn.active {
-  background-color: var(--accent-4);
-  transform: translate(-1px, -1px);
-  box-shadow: 5px 5px 0px 0px black;
+  background-color: var(--hot);
+  color: var(--surface);
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 0 var(--terminal-black), var(--pressed);
 }
 
-/* SECTIONS */
+/* ---------------------------------------------------------
+   SECTIONS
+   --------------------------------------------------------- */
 .section-title {
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
+  font-weight: 400;
   text-align: center;
-  margin-bottom: 2.5rem;
-  font-size: 1.8rem;
+  margin-bottom: 2.25rem;
+  font-size: 2.2rem;
+  letter-spacing: -0.01em;
+  text-transform: none;
   position: relative;
   display: inline-block;
   z-index: 1;
@@ -169,107 +273,163 @@ h1 {
 .section-title::after {
   content: '';
   display: block;
-  width: 100%;
-  height: 12px;
-  background-color: var(--accent-2);
+  width: calc(100% + 12px);
+  height: 14px;
+  background-color: var(--atomic-glow-1);
   position: absolute;
-  bottom: 2px;
-  left: 0;
+  bottom: 4px;
+  left: -6px;
   z-index: -1;
-  opacity: 0.8;
+  border-radius: 3px;
+  opacity: 0.85;
 }
 
-/* CARDS */
+/* ---------------------------------------------------------
+   CARDS
+   --------------------------------------------------------- */
 .card {
-  background: white;
-  border: 2px solid var(--border-color);
-  padding: 20px;
+  background: var(--surface);
+  border: var(--bw) solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 22px;
   margin-bottom: 1.5rem;
-  box-shadow: 4px 4px 0px 0px black;
+  box-shadow: var(--shadow);
   text-align: left;
   position: relative;
+  transition: transform 0.14s ease, box-shadow 0.14s ease;
+}
+
+.card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-lg);
 }
 
 .card-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 12px;
   margin-bottom: 10px;
 }
 
 .card-title {
-  font-weight: 700;
-  font-size: 1.2rem;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
   margin: 0;
 }
 
 .card-year {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.04rem;
   background: var(--accent-1);
-  padding: 4px 8px;
-  border: 1px solid black;
-  font-weight: bold;
-  white-space: nowrap; /* Prevents year from breaking awkwardly */
+  padding: 5px 10px;
+  border: var(--bw) solid var(--border-color);
+  border-radius: 50vw;
+  font-weight: 700;
+  white-space: nowrap;
+  display: inline-block;
 }
 
-/* FOOTER */
+/* pill used for company / tech / role labels */
+.chip {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04rem;
+  display: inline-block;
+  padding: 5px 10px;
+  border: var(--bw) solid var(--border-color);
+  border-radius: 50vw;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.card ul {
+  margin-top: 14px;
+  padding-left: 1.1rem;
+  font-size: 0.94rem;
+}
+
+.card li {
+  margin-bottom: 7px;
+}
+
+.card li::marker {
+  color: var(--hot);
+}
+
+.card a {
+  color: var(--terminal-black);
+  text-decoration-color: var(--hot);
+  text-underline-offset: 3px;
+}
+
+/* ---------------------------------------------------------
+   FOOTER
+   --------------------------------------------------------- */
 footer {
   margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: var(--bw) dashed var(--pc-plastic-4);
   font-family: var(--font-mono);
-  font-size: 0.8rem;
-  opacity: 0.6;
+  font-size: 0.75rem;
+  letter-spacing: 0.04rem;
+  opacity: 0.75;
 }
 
-/* ------------------------------------------------ */
-/* MOBILE RESPONSIVENESS (The Magic Part)           */
-/* ------------------------------------------------ */
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
 @media (max-width: 600px) {
-  /* Shrink container padding */
   .container {
-    padding: 20px 15px;
+    padding: 24px 14px 32px;
   }
 
-  /* Shrink the big name */
-  h1 {
-    font-size: 2rem; 
+  .header {
+    padding: 2rem 1rem 1.75rem;
   }
 
-  /* Stack nav buttons tighter */
   .nav {
-    gap: 10px;
+    gap: 8px;
   }
 
-  /* Make nav buttons smaller & full width capable if needed */
   .nav-btn {
-    padding: 10px 15px;
-    font-size: 0.9rem;
-    flex: 1 1 40%; /* Buttons take up roughly half width */
+    padding: 10px 12px;
+    font-size: 0.72rem;
+    flex: 1 1 40%;
   }
 
-  /* Adjust Profile Pic Size */
   .profile-pic-container {
-    width: 120px;
-    height: 120px;
+    width: 112px;
+    height: 112px;
   }
 
-  /* Fix Card Header Stacking */
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .card-title {
+    font-size: 1.35rem;
+  }
+
   .card-header {
     flex-direction: column;
-    gap: 5px;
+    gap: 4px;
   }
 
   .card-year {
-    align-self: flex-start; /* Move year below title on very small screens */
+    align-self: flex-start;
     margin-top: 5px;
   }
-  
-  /* Make the 'External Link' button in projects align nicely */
+
   .card-header > div:last-child {
-      display: flex;
-      width: 100%;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 8px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
   }
 }
