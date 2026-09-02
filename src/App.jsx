@@ -25,7 +25,7 @@ import { GitHubCalendar } from "react-github-calendar";
 import "./App.css";
 
 function App() {
-  const [activeTab, setActiveTab] = useState("achievements");
+  const [activeTab, setActiveTab] = useState("about");
   // REPLACE THIS WITH YOUR ACTUAL SOLANA WALLET ADDRESS
   const [copied, setCopied] = useState(false);
   const solanaAddress = "GsJYonU5Kz4MJBHZ5UFx9oyStBpXXswnZcFUorktj2yZ";
