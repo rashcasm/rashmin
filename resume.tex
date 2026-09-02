@@ -1,0 +1,253 @@
+%-------------------------
+% Resume in LaTeX
+% Based on: Jake Gutierrez / sb2nov (MIT License)
+% Default LaTeX font (Computer Modern) -> compile with pdfLaTeX
+%-------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Rashmin Chaudhari} \\ \vspace{2pt}
+    \small +91 93562 74667 $|$
+    \href{mailto:rashmin.work@gmail.com}{\underline{rashmin.work@gmail.com}} $|$
+    \href{https://linkedin.com/in/rashminchaudhari}{\underline{linkedin.com/in/rashminchaudhari}} $|$
+    \href{https://github.com/rashcasm}{\underline{github.com/rashcasm}} $|$
+    \href{https://www.rashmin.tech}{\underline{rashmin.tech}}
+\end{center}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Quantitative Software Developer Intern}{Mar 2026 -- Present}
+      {WIN Capital Funds} {International (Remote)}
+      \resumeItemListStart
+        \resumeItem{Built an automated data pipeline that delivers clean, ready-to-use daily market data (NYSE and crypto) to the trading team, by ingesting and processing raw price feeds with Python and PostgreSQL.}
+        \resumeItem{Removed a full day of lag in daily price data by building an intraday-to-daily aggregation process, after catching accuracy gaps in yfinance through automated cross-checks.}
+        \resumeItem{Made deployments repeatable and error-free across development and production by packaging the pipeline with Docker.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Algorithmic Trading Intern}{Jan 2026 -- Jul 2026}
+      {AimFi Capital} {Hyderabad, India (Remote)}
+      \resumeItemListStart
+        \resumeItem{Cut daily stock screening from 2--3 days of manual chart-checking to under 5 minutes, by building a real-time engine that scans 2,200+ NSE \& BSE stocks for 8+ technical chart patterns in Python.}
+        \resumeItem{Gave traders a ready-to-act shortlist every day by delivering ranked watchlists that automatically flag breakouts, trendline breaks, and bullish \& bearish divergences.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+
+      \resumeProjectHeading
+          {\textbf{QuantLabs} $|$ \emph{React, Node.js, Python}}{2026 \href{https://quant-ecru-seven.vercel.app/}{\underline{Live}}}
+          \resumeItemListStart
+            \resumeItem{Built a trading-strategy sandbox that lets a user describe a strategy in plain English and automatically turns it into runnable Python backtest code.}
+            \resumeItem{Created an engine that tests strategies on historical price data and reports the risk numbers investors care about, such as Sharpe Ratio and maximum drawdown.}
+            \resumeItem{Added an automatic portfolio rebalancer that controls risk and hedges with options based on live market conditions.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{WhyLine} $|$ \emph{Python, FastAPI, React, TypeScript}}{2026 \href{https://github.com/rashcasm/WhyLine}{\underline{GitHub}}}
+          \resumeItemListStart
+            \resumeItem{Built a real-time anomaly detection system monitoring 10 crypto symbols concurrently, as measured by flagging statistically significant price moves ($|z|\geq3$) and volume surges ($z\geq3.5$) within a single 1-minute candle, by combining rolling z-score analysis with a streaming Isolation Forest model over live Binance data.}
+            \resumeItem{Removed the dashboard's cold-start gap, as measured by surfacing roughly 16 hours of annotated historical context immediately on load, by backfilling and back-scanning 1,000 candles per symbol before handing off to live WebSocket streaming.}
+            \resumeItem{Validated detection correctness across the pipeline, as measured by 33 passing automated tests spanning z-score math, outlier flagging, and API parsing, by building a fully offline test suite as part of a 4-person team.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Bhishi} $|$ \emph{TypeScript, Compact, Midnight (ZK)}}{2026
+          \href{https://github.com/rashcasm/bhishi}{\underline{GitHub}}}
+          \resumeItemListStart
+            \resumeItem{Eliminated organizer-fraud risk in traditional chit funds, as measured by holding 100\% of member contributions in trustless on-chain escrow, by implementing an 8-circuit smart contract on the Midnight privacy blockchain.}
+            \resumeItem{Protected members from publicly signaling financial distress, as measured by never revealing losing bid amounts on-chain, by sealing every round's bid behind a zero-knowledge commitment cryptographically verified against its reveal.}
+            \resumeItem{Verified correctness of the auction and payout logic, as measured by 14 passing tests covering sealed-bid integrity, one-win-per-cycle guarantees, and full-cycle money conservation, by building a TypeScript simulator mirroring every on-chain circuit assertion.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Ekonos} $|$ \emph{Rust, Solana, Anchor}}{2025 \href{https://github.com/rashcasm/ekonos-v1}{\underline{GitHub}}}
+          \resumeItemListStart
+            \resumeItem{Built a fractional asset-ownership protocol on Solana (Turbin3 Capstone) that lets several users co-own and invest in a single high-value asset.}
+            \resumeItem{Designed secure on-chain vaults and token-distribution logic so each user's investment and ownership share is tracked automatically and safely.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Commit-Mirror} $|$ \emph{Python, PyPI Package}}{2026 \href{https://github.com/rashcasm/portfolio-check}{\underline{GitHub}}}
+          \resumeItemListStart
+            \resumeItem{Solved GitHub's contribution-graph loss for developers exiting private organizations, as measured by preserving commit activity with zero code or diff exposure, by building and publishing a pip-installable CLI that mirrors commit metadata to a public repo.}
+            \resumeItem{Enabled fully automated, hands-off operation, as measured by daily syncing via cron/Task Scheduler with a dry-run preview mode, by designing a config-driven setup wizard.}
+          \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+
+%------------COPYRIGHTS-----------------
+\section{Copyrights}
+    \resumeSubHeadingListStart
+        \resumeProjectHeading
+          {\textbf{QuantLabs: NLP Based Backtesting Engine and Portfolio Rebalancer} $|$ \emph{SW-11555/2026-CO}}{2026}
+        \resumeProjectHeading
+          {\textbf{Automated Job Application Using a Smart Browser Extension} $|$ \emph{LD-46176/2025-CO}}{2025}
+    \resumeSubHeadingListEnd
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Rust, Python, C++, SQL, JavaScript, TypeScript} \\
+     \textbf{Frameworks}{: Anchor, React, Node.js} \\
+     \textbf{Developer Tools}{: Git, Docker, PostgreSQL, VS Code, Surfpool, Postman} \\
+     \textbf{Libraries}{: pandas, NumPy, Matplotlib}
+    }}
+ \end{itemize}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {St. Vincent Pallotti College of Engineering \& Technology, Nagpur} {CGPA: 9.75}
+      {Bachelor of Technology in Computer Science and Business Systems, minor in AI} {2023 -- 2027}
+  \resumeSubHeadingListEnd
+
+%------------CERTIFICATIONS-----------------
+\section{Certifications}
+    \resumeSubHeadingListStart
+        \resumeProjectHeading
+          {\textbf{Solana Builder Graduate} $|$ \emph{turbin3.org}}{2025}
+        \resumeProjectHeading
+          {\textbf{School of Solana Graduate} $|$ \emph{ackee.xyz}}{2025}
+        \resumeProjectHeading
+          {\textbf{Disaster Risk Monitoring Using Satellite Imagery} $|$ \emph{NVIDIA}}{2024}
+        \resumeProjectHeading
+          {\textbf{Python and SQL for Data Science} $|$ \emph{Scaler}}{2024}
+    \resumeSubHeadingListEnd
+
+%-------AWARDS------------------------------
+\section{Awards and Achievements}
+    \resumeSubHeadingListStart
+        \resumeProjectHeading
+          {\textbf{Blockchain Nexus, IIT Kanpur} $|$ \emph{First Position}}{2025}
+        \resumeProjectHeading
+          {\textbf{Stellar Ragnarok, Nagpur} $|$ \emph{Second Position}}{2025}
+        \resumeProjectHeading
+          {\textbf{Raisoni Tech Hackathon, Nagpur} $|$ \emph{First Position}}{2024}
+        \resumeProjectHeading
+          {\textbf{Outstanding Tech Performer, SVPCET} $|$ \emph{Award Receiver}}{2024}
+        \resumeProjectHeading
+          {\textbf{SIH Expo, SVPCET} $|$ \emph{Third Position}}{2024}
+        \resumeProjectHeading
+          {\textbf{Dataverse, SVPCET} $|$ \emph{First Position}}{2024}
+    \resumeSubHeadingListEnd
+
+%-------LEADERSHIP---------------------------
+\vspace{1pt}
+\section{Leadership}
+  \resumeSubHeadingListStart
+
+    \resumeProjectHeading
+      {\textbf{HacKronyX} $|$ \emph{Lead Organizer}}{2025}
+      \resumeItemListStart
+        \resumeItem{Directed a national-level hackathon end-to-end, managing logistics, sponsorships, and volunteers to deliver 3500+ registrations.}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{Get On-Chain Workshop} $|$ \emph{Lead Instructor}}{2025}
+      \resumeItemListStart
+        \resumeItem{Led a hands-on blockchain workshop for 70+ participants, taking each one from fundamentals to deploying their first working dApp.}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{HackGenX} $|$ \emph{Technical Mentor and Judge}}{2025}
+      \resumeItemListStart
+        \resumeItem{Mentored competing teams and judged final submissions on innovation, design, and technical depth.}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{Vigyan Va Ganit Sanskar Shibir (ViBha)} $|$ \emph{Invited Speaker}}{2025}
+      \resumeItemListStart
+        \resumeItem{Presented on AI applications and emerging trends to a general audience in Daryapur, translating technical concepts for a non-technical crowd.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-------------------------------------------
+\end{document}
