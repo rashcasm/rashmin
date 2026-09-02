@@ -25,7 +25,7 @@ import { GitHubCalendar } from "react-github-calendar";
 import "./App.css";
 
 function App() {
-  const [activeTab, setActiveTab] = useState("about");
+  const [activeTab, setActiveTab] = useState("achievements");
   // REPLACE THIS WITH YOUR ACTUAL SOLANA WALLET ADDRESS
   const [copied, setCopied] = useState(false);
   const solanaAddress = "GsJYonU5Kz4MJBHZ5UFx9oyStBpXXswnZcFUorktj2yZ";
@@ -146,30 +146,6 @@ function App() {
       org: "Nagpur",
       year: "2024",
       desc: "Secured 1st place for innovative technical solutions.",
-    },
-    {
-      title: "Outstanding Tech Performer",
-      org: "SVPCET",
-      year: "2024",
-      desc: "Award Receiver.",
-    },
-    {
-      title: "Third Position, SIH Expo",
-      org: "SVPCET",
-      year: "2024",
-      desc: "Internal Smart India Hackathon exhibition winner.",
-    },
-    {
-      title: "First Position, Dataverse",
-      org: "SVPCET",
-      year: "2024",
-      desc: "Secured top rank in data-focused competition.",
-    },
-    {
-      title: "Rank 1 in College",
-      org: "SVPCET",
-      year: "2024",
-      desc: "Achieved 10.00 CGPA.",
     },
   ];
 
@@ -405,7 +381,7 @@ function App() {
             <Mail size={20} />
           </a>
           <a
-            href="/master_resume.pdf"
+            href="/master_resume_aug.pdf"
             download="Rashmin_Resume.pdf"
             className="icon-btn"
           >
@@ -443,12 +419,11 @@ function App() {
               style={{ textAlign: "left", padding: "24px 26px" }}
             >
               <p>
-                Final-year Computer Science & Business Systems student from
-                Nagpur (CGPA 9.71), currently building quant trading
-                infrastructure as a <strong>Quantitative Software Developer</strong>{" "}
-                at <strong>WIN Private Equity Ltd</strong> — daily market data
-                pipelines across 5,500+ equities and futures, and 10+ systematic
-                strategies on top of them.
+                <strong>Quantitative Software Developer</strong> based in
+                Nagpur, building quant trading infrastructure at{" "}
+                <strong>WIN Private Equity Ltd</strong> — daily market data
+                pipelines across 5,500+ equities and futures, and 10+
+                systematic strategies on top of them.
               </p>
               <p>
                 Alongside that I’m in the <strong>Founder’s Office</strong> at{" "}
