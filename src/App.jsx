@@ -65,7 +65,7 @@ function App() {
         </figure>
         <h1>Rashmin Chaudhari</h1>
         <p className="tagline">
-          chief of staff / quant infra / ai / <s>sleep</s>
+          chief of staff / quant infra / ai
         </p>
       </header>
 
