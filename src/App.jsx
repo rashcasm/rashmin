@@ -73,9 +73,6 @@ function App() {
             {id}
           </a>
         ))}
-        <a href="/master_resume_aug.pdf" download="Rashmin_Resume.pdf">
-          resume.pdf ↓
-        </a>
       </nav>
 
       <main>

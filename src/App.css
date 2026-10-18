@@ -73,13 +73,25 @@ code {
 
 /* ---------- status line ---------- */
 .status {
+  position: sticky;
+  top: 0;
+  z-index: 1;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0 1.5rem;
+  gap: 1.5rem;
   padding: 6px 0;
+  background: var(--paper);
   border-bottom: 1px solid var(--ink);
   font: 12px/1.6 var(--mono);
   color: var(--muted);
+}
+
+/* one line, no layout jump when a long URL shows up */
+.status-msg {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 /* ---------- masthead ---------- */
@@ -155,9 +167,6 @@ h1 {
   text-decoration: none;
 }
 
-.tabs a:last-child {
-  margin-left: auto;
-}
 
 /* ---------- sections ---------- */
 .section h2 {
@@ -377,9 +386,6 @@ footer p {
     padding: 8px 9px;
   }
 
-  .tabs a:last-child {
-    margin-left: 0;
-  }
 
   .stack > div {
     grid-template-columns: 1fr;

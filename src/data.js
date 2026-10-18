@@ -1,17 +1,5 @@
 export const experiences = [
   {
-    role: "Quantitative Software Developer Intern",
-    company: "WIN Private Equity Ltd",
-    duration: "March 2026 – Sept 2026",
-    location: "Remote (International)",
-    details: [
-      "Built an automated data pipeline that delivers clean daily market data for 5,500+ equities and futures (NYSE and crypto) to the trading team, ingesting and processing raw price feeds with Python and PostgreSQL.",
-      "Developed 10+ systematic trading strategies on top of the pipeline, with the best performers reaching a profit factor of ≈3 in backtests.",
-      "Removed a full day of lag in daily price data by building an intraday-to-daily aggregation process, after catching accuracy gaps in yfinance through automated cross-checks.",
-      "Made deployments repeatable across development and production by packaging the pipeline with Docker.",
-    ],
-  },
-  {
     role: "Chief of Staff Intern",
     company: "eigi.ai",
     isNew: true,
@@ -25,6 +13,18 @@ export const experiences = [
       "Came up with a quirky GTM move. It worked well enough that we’re doubling down on it.",
       "Set up academic partnerships that feed our hiring and community pipeline.",
       "Handled first-round screening for forward-deployed engineer roles.",
+    ],
+  },
+  {
+    role: "Quantitative Software Developer Intern",
+    company: "WIN Private Equity Ltd",
+    duration: "March 2026 – Sept 2026",
+    location: "Remote (International)",
+    details: [
+      "Built an automated data pipeline that delivers clean daily market data for 5,500+ equities and futures (NYSE and crypto) to the trading team, ingesting and processing raw price feeds with Python and PostgreSQL.",
+      "Developed 10+ systematic trading strategies on top of the pipeline, with the best performers reaching a profit factor of ≈3 in backtests.",
+      "Removed a full day of lag in daily price data by building an intraday-to-daily aggregation process, after catching accuracy gaps in yfinance through automated cross-checks.",
+      "Made deployments repeatable across development and production by packaging the pipeline with Docker.",
     ],
   },
   {
