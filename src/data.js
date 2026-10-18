@@ -5,12 +5,12 @@ export const experiences = [
     isNew: true,
     duration: "Aug 2026 – Present",
     location: "Remote (India)",
-    summary: "Work directly with the founder across product, tech, and GTM at an early-stage AI startup.",
+    link: "https://eigi.ai",
+    summary: "eigi makes businesses AI-native. I work directly with the founder across product, tech, and GTM.",
     details: [
       "Led product for a finance learning app (investment banking and private equity) for a US client.",
       "Led product with a team of forward-deployed engineers on the automation layer of a US-based supply chain company, covering customer support and operations.",
       "Make technical calls and scope integrations (Meta, GCP, Anthropic, etc.) with the engineering team.",
-      "Came up with a quirky GTM move. It worked well enough that we’re doubling down on it.",
       "Set up academic partnerships that feed our hiring and community pipeline.",
       "Handled first-round screening for forward-deployed engineer roles.",
     ],
@@ -279,3 +279,54 @@ export const links = [
 ];
 
 export const solanaAddress = "GsJYonU5Kz4MJBHZ5UFx9oyStBpXXswnZcFUorktj2yZ";
+
+export const values = [
+  {
+    title: "Ambition and agency",
+    text: "Aim high enough that it’s a little embarrassing to say out loud. Then go do it without waiting for permission. FAFO* is a valid research method.",
+  },
+  {
+    title: "Experiments over opinions",
+    text: "Don’t know if it works? Build it and find out. A weekend prototype settles more arguments than a month of meetings.",
+  },
+  {
+    title: "Losing is allowed",
+    text: "Not trying is a guaranteed 100% loss. Trying and losing still pays out in data, scar tissue, and a better second attempt.",
+  },
+  {
+    title: "Build your own thing",
+    text: "I like people who want to start something of their own, whether that’s next year or next Monday.",
+  },
+  {
+    title: "Ride the wave",
+    text: "Big technology shifts show up maybe once a decade. Paddle early, paddle hard, and don’t wait for the wave to look obvious.",
+  },
+  {
+    title: "Process over outcome",
+    text: "Outcomes are lagging indicators. Get the process right, repeat it, and the results follow.",
+  },
+  {
+    title: "Speed",
+    text: "Fast and slightly wrong beats slow and perfectly late. You can fix a shipped thing. You can’t fix a thing that’s still in a doc.",
+  },
+  {
+    title: "Ownership",
+    text: "If it’s broken and you saw it, it’s yours now.",
+  },
+  {
+    title: "Skin in the game",
+    text: "Opinions are free. Positions cost money. I trust people who’ve taken a position.",
+  },
+  {
+    title: "Show up on boring days",
+    text: "Motivation shows up on day one. Consistency is what’s still there on day ninety.",
+  },
+];
+
+export const prohibited = [
+  "“Let’s circle back” with no date attached",
+  "“We’ve always done it this way”",
+  "Asking for permission you already have",
+  "A 40-slide deck for a four-line idea",
+  "Waiting for the perfect time",
+];

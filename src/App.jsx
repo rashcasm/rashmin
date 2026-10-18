@@ -4,6 +4,7 @@ import Entry from "./components/Entry";
 import Contributions from "./components/Contributions";
 import CopyAddress from "./components/CopyAddress";
 import StatusBar from "./components/StatusBar";
+import Terms from "./components/Terms";
 import {
   experiences,
   projects,
@@ -22,6 +23,7 @@ const tabs = [
   ["stack", "stack"],
   ["wins", "wins"],
   ["talks", "talks & community"],
+  ["values", "terms of working with me"],
   ["contact", "contact"],
 ];
 const ids = tabs.map(([id]) => id);
@@ -80,8 +82,12 @@ function App() {
           {tab === "about" && (
             <>
               <p>
-                I’m the chief of staff intern at <strong>eigi.ai</strong>,
-                working with the founder across product, tech, and GTM.
+                I’m the chief of staff intern at{" "}
+                <a href="https://eigi.ai" target="_blank" rel="noopener noreferrer">
+                  <strong>eigi.ai</strong>
+                </a>
+                , where we make businesses AI-native. I work with the founder
+                across product, tech, and GTM.
               </p>
               <p>
                 Until September I built trading infrastructure at{" "}
@@ -93,7 +99,7 @@ function App() {
               </p>
               <p>
                 I love analytical decision making, whether the call is a trading
-                strategy or a GTM bet.
+                strategy, a GTM bet, or what gets prioritized this week.
               </p>
               <p>
                 I pick up unfamiliar stacks fast. Rust, ZK circuits, and
@@ -183,6 +189,8 @@ function App() {
               ))}
             </ul>
           )}
+
+          {tab === "values" && <Terms />}
 
           {tab === "contact" && (
             <>
