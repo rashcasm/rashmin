@@ -2,7 +2,7 @@ export const experiences = [
   {
     role: "Quantitative Software Developer Intern",
     company: "WIN Private Equity Ltd",
-    duration: "March 2026 – Present",
+    duration: "March 2026 – Sept 2026",
     location: "Remote (International)",
     details: [
       "Built an automated data pipeline that delivers clean daily market data for 5,500+ equities and futures (NYSE and crypto) to the trading team, ingesting and processing raw price feeds with Python and PostgreSQL.",
@@ -12,15 +12,19 @@ export const experiences = [
     ],
   },
   {
-    role: "Founder’s Office — Product",
+    role: "Chief of Staff Intern",
     company: "eigi.ai",
     isNew: true,
     duration: "Aug 2026 – Present",
     location: "Remote (India)",
+    summary: "Work directly with the founder across product, tech, and GTM at an early-stage AI startup.",
     details: [
-      "Working directly with the founder across product, engineering, and growth at an early-stage AI startup.",
-      "Scoping technical decisions and third-party integrations (Meta, GCP, Anthropic) alongside the engineering team.",
-      "Stepping into strategy, hiring, and whatever else the week requires.",
+      "Led product for a finance learning app (investment banking and private equity) for a US client.",
+      "Led product with a team of forward-deployed engineers on the automation layer of a US-based supply chain company, covering customer support and operations.",
+      "Make technical calls and scope integrations (Meta, GCP, Anthropic, etc.) with the engineering team.",
+      "Came up with a quirky GTM move. It worked well enough that we’re doubling down on it.",
+      "Set up academic partnerships that feed our hiring and community pipeline.",
+      "Handled first-round screening for forward-deployed engineer roles.",
     ],
   },
   {

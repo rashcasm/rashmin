@@ -34,12 +34,10 @@ body {
   background: var(--hi);
 }
 
-/* left-hung, not centred: the way pages used to sit */
 .page {
-  max-width: 40rem;
-  margin-left: max(0px, 12vw);
+  max-width: 44rem;
+  margin: 0 auto;
   padding: 0 16px 3rem;
-  counter-reset: sec;
 }
 
 a {
@@ -73,12 +71,6 @@ code {
   font-size: 0.8em;
 }
 
-hr {
-  border: 0;
-  border-top: 3px double var(--ink);
-  margin: 2.5rem 0;
-}
-
 /* ---------- status line ---------- */
 .status {
   display: flex;
@@ -92,7 +84,7 @@ hr {
 
 /* ---------- masthead ---------- */
 .masthead {
-  margin: 2.5rem 0 3rem;
+  margin: 2.5rem 0 1.5rem;
 }
 
 .masthead::after {
@@ -140,17 +132,35 @@ h1 {
   color: var(--red);
 }
 
-.toc {
-  font: 15px/2 var(--mono);
+/* ---------- tabs ---------- */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 0 0 2.5rem;
+  padding-bottom: 8px;
+  border-bottom: 3px double var(--ink);
+  font: 15px/1.4 var(--mono);
 }
 
-.toc a {
-  padding: 2px 0;
+.tabs a,
+.tabs a:visited {
+  padding: 6px 8px;
+  color: var(--link);
+}
+
+.tabs a[aria-current="page"] {
+  background: var(--ink);
+  color: var(--paper);
+  text-decoration: none;
+}
+
+.tabs a:last-child {
+  margin-left: auto;
 }
 
 /* ---------- sections ---------- */
 .section h2 {
-  counter-increment: sec;
   position: relative;
   font-size: 1.4rem;
   line-height: 1.2;
@@ -158,29 +168,13 @@ h1 {
 }
 
 /* numbers hang in the left margin on wide screens */
-.section h2::before {
-  content: counter(sec) ".";
+.section h2 .num {
   position: absolute;
   right: 100%;
   top: 0.35em;
   margin-right: 0.9rem;
   font: 14px var(--mono);
   color: var(--red);
-}
-
-.section h2 a,
-.section h2 a:visited {
-  color: inherit;
-  text-decoration: none;
-}
-
-.section h2 a:hover {
-  background: none;
-}
-
-.section h2 a:hover::after {
-  content: " #";
-  color: var(--muted);
 }
 
 .section p {
@@ -354,12 +348,8 @@ footer p {
 }
 
 /* ---------- small screens ---------- */
-@media (max-width: 760px) {
-  .page {
-    margin-left: 0;
-  }
-
-  .section h2::before {
+@media (max-width: 800px) {
+  .section h2 .num {
     position: static;
     margin-right: 0.5rem;
   }
@@ -371,12 +361,24 @@ footer p {
   }
 
   .masthead {
-    margin: 1.75rem 0 2.25rem;
+    margin: 1.75rem 0 0.75rem;
   }
 
   .photo {
     width: 96px;
     margin-left: 0.75rem;
+  }
+
+  .tabs {
+    font-size: 14px;
+  }
+
+  .tabs a {
+    padding: 8px 9px;
+  }
+
+  .tabs a:last-child {
+    margin-left: 0;
   }
 
   .stack > div {

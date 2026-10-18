@@ -1,8 +1,9 @@
-export default function Section({ id, title, children }) {
+export default function Section({ n, title, children }) {
   return (
-    <section id={id} className="section">
+    <section className="section">
       <h2>
-        <a href={`#${id}`}>{title}</a>
+        <span className="num">{n}.</span>
+        {title}
       </h2>
       {children}
     </section>
