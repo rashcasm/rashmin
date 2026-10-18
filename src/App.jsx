@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import Section from "./components/Section";
 import Entry from "./components/Entry";
-import Contributions from "./components/Contributions";
 import CopyAddress from "./components/CopyAddress";
 import StatusBar from "./components/StatusBar";
 import Terms from "./components/Terms";
@@ -15,6 +14,9 @@ import {
   solanaAddress,
 } from "./data";
 import "./App.css";
+
+// the calendar library and its data fetch shouldn't hold up the first paint
+const Contributions = lazy(() => import("./components/Contributions"));
 
 const tabs = [
   ["about", "about"],
@@ -56,7 +58,7 @@ function App() {
       <header className="masthead">
         <figure className="photo">
           <img
-            src="/min.jpg"
+            src="/min-264.jpg"
             alt="Rashmin Chaudhari - Software Engineer (not Rashmi Chaudhari)"
             width="120"
             height="120"
@@ -109,7 +111,9 @@ function App() {
               </p>
               <p className="aside">This website will not be getting any fancier.</p>
               <p className="label">commits, last 12 months:</p>
-              <Contributions />
+              <Suspense fallback={<div className="calendar" />}>
+                <Contributions />
+              </Suspense>
             </>
           )}
 

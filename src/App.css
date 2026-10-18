@@ -314,6 +314,7 @@ details[open] summary::before {
 
 /* ---------- github calendar ---------- */
 .calendar {
+  min-height: 229px; /* reserve space while the lazy chunk loads */
   overflow-x: auto;
   padding: 12px;
   background: #fff;
