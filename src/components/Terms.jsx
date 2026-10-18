@@ -8,7 +8,7 @@ const replies = {
       <a href="mailto:rashmin.work@gmail.com">rashmin.work@gmail.com</a>
     </>
   ),
-  disagree: "Fair. Bring data and I might change my mind. Bring vibes and I won’t.",
+  disagree: "Fair. Convince me over coffee. Data counts, and so do vibes.",
 };
 
 export default function Terms() {
