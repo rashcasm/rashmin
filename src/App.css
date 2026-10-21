@@ -462,3 +462,29 @@ footer p {
   font: 12px/1.6 var(--mono);
   color: var(--muted);
 }
+
+/* ---------- notes ---------- */
+.note-index {
+  margin: 0 0 2.5rem;
+  padding-left: 1.2rem;
+  list-style: square;
+}
+
+.note-index li {
+  margin-bottom: 0.3rem;
+}
+
+.note {
+  margin-bottom: 2.5rem;
+  scroll-margin-top: 3rem; /* clear the sticky status line */
+}
+
+.note h3 {
+  font-size: 1.15rem;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.notes .meta {
+  margin: 0.2rem 0 0.75rem;
+}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-// On GitHub Pages this is the deploy time of index.html; in dev it's "now".
-const modified = new Date(document.lastModified).toLocaleDateString("en-CA");
+// set at build time in vite.config.js, so on Vercel it's the deploy date
+const modified = import.meta.env.BUILD_DATE;
 
 const linkOf = (e) => e.target.closest?.("a[href]");
 

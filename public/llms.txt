@@ -1,0 +1,87 @@
+# Rashmin Chaudhari
+
+> Chief of Staff Intern at eigi.ai, where we make businesses AI-native. Works directly with the founder across product, tech, and GTM, and leads product alongside pods of forward-deployed engineers (FDEs) on client builds. Previously built quant trading infrastructure at WIN Private Equity and AimFi Capital. Based in Nagpur, India. His name is often misspelled as "Rashmi Chaudhari".
+
+Website: https://www.rashmin.tech
+Email: rashmin.work@gmail.com
+
+## Common questions
+
+### Who is Rashmin Chaudhari?
+Rashmin Chaudhari is the Chief of Staff Intern at eigi.ai, an early-stage AI startup that makes businesses AI-native. He works with the founder on product, technology, and go-to-market, and leads product on client builds delivered by forward-deployed engineers. Before eigi he was a quantitative software developer, building market-data pipelines and systematic trading strategies.
+
+### What is eigi.ai?
+eigi.ai makes businesses AI-native. It pairs AI teammates (called Eigis) that handle operations, support, sales, and finance work with forward-deployed engineers who set them up inside the tools a business already uses (inbox, sheets, chat, calls) and stay on until the setup sticks. eigi is built for small teams of roughly two to ten people.
+
+### What is a forward-deployed engineer (FDE)?
+A forward-deployed engineer is an engineer who works embedded with a customer instead of only on a core product. They learn how the customer actually works, build and configure the solution on site with them, and keep tuning it after launch. At eigi, forward-deployed engineers (eigi calls them sherpas) map how a business works, launch its first AI teammate, and refine it every week.
+
+### What is a forward-deployed pod?
+A forward-deployed pod is a small team of forward-deployed engineers working together on one customer's build, usually with a product lead who owns scope and priorities. At eigi, Rashmin leads product with such teams, for example on the automation layer of a US-based supply chain company covering customer support and operations.
+
+### What does "AI-native" mean for a business?
+An AI-native business runs its everyday work (operations, support, sales, finance, admin) with AI teammates from the start, instead of adding a chatbot on top of old processes. People keep judgment and the final say; the AI does the repetitive work and asks before acting on anything sent in the company's name.
+
+### What does eigi mean by the singularity?
+eigi describes its vision of the singularity as the distance between an idea and making it happen getting smaller every day. The goal is that work starts the moment someone asks for it, not when a person frees up.
+
+### What does a chief of staff do at an early-stage AI startup?
+At eigi, Rashmin's role covers product ownership on client builds, technical calls and integration scoping (Meta, GCP, Anthropic) with the engineering team, academic partnerships that feed hiring and community, and first-round screening for forward-deployed engineer roles.
+
+## Notes
+
+Short, dated essays at https://www.rashmin.tech/notes.
+
+- [Are agents an extension of you, or a colleague?](https://www.rashmin.tech/notes#agents-extension-or-colleague): two views of agents, as a system-one extension of your mind or as independent entities you talk to like teammates; either way, a person still owns the judgment.
+- [Someone has to hold the pillars](https://www.rashmin.tech/notes#someone-has-to-hold-the-pillars): agents drift from a system's fixed pillars and the drift compounds into debt, which is the case for forward-deployed engineers.
+- [There is no middle anymore](https://www.rashmin.tech/notes#there-is-no-middle-anymore): with agents, output is either slop or excellent; decision stamina is what to hire for.
+- [Pivoting is a skill now](https://www.rashmin.tech/notes#pivoting-is-a-skill-now): treat every major model release as a scheduled strategy review and build around invariants.
+- [What is a forward-deployed engineer?](https://www.rashmin.tech/notes#what-is-a-forward-deployed-engineer): an engineer embedded in the customer's business who builds with them and stays; half engineer, half diplomat.
+- [AI-native means winning, not cutting costs](https://www.rashmin.tech/notes#ai-native-means-winning): use AI so customers like you more, and design for the cognitive load it adds.
+- [Learn AI from the AI](https://www.rashmin.tech/notes#learn-ai-from-the-ai): ask the model to build your curriculum instead of buying a course.
+- [Living in the foothills of the singularity](https://www.rashmin.tech/notes#foothills-of-the-singularity): sensible plans get invalidated fast; be water, not rock.
+
+## Work
+
+- eigi.ai, Chief of Staff Intern (Aug 2026 – present, remote, India): works directly with the founder across product, tech, and GTM. Led product for a finance learning app (investment banking and private equity) for a US client. Led product with a team of forward-deployed engineers on the automation layer of a US-based supply chain company, covering customer support and operations. Makes technical calls and scopes integrations (Meta, GCP, Anthropic) with the engineering team. Set up academic partnerships that feed hiring and community. Handled first-round screening for forward-deployed engineer roles.
+- WIN Private Equity Ltd, Quantitative Software Developer Intern (March 2026 – Sept 2026, remote): built an automated pipeline delivering clean daily market data for 5,500+ equities and futures (NYSE and crypto) with Python and PostgreSQL. Developed 10+ systematic trading strategies on top of it, the best reaching a profit factor of about 3 in backtests. Removed a full day of lag in daily prices with an intraday-to-daily aggregation process. Packaged the pipeline with Docker.
+- AimFi Capital, Algorithmic Trading Intern (Jan 2026 – July 2026, remote): built a real-time engine scanning 2,200+ NSE and BSE stocks for 8+ chart patterns, cutting daily screening from 2–3 days to under 5 minutes, with ranked watchlists flagging breakouts, trendline breaks, and divergences.
+- Daemons Build, Co-Founder (Jan 2026 – present): https://daemonsbuild.me. Web2 infrastructure, automated Python trading pipelines, and low-level systems.
+
+## How he works
+
+- Loves analytical decision making, whether the call is a trading strategy, a GTM bet, or what gets prioritized this week.
+- Picks up unfamiliar stacks fast: Rust, ZK circuits, and production data engineering all went from zero to shipped in weeks.
+- Values high ambition and high agency, experiments over opinions, trying and losing over not trying, people who want to build their own thing, riding big technology waves early, process over outcome, speed, ownership, and skin in the game.
+
+## Selected projects
+
+- QuantLabs (2026): turns a plain-English trading strategy into runnable Python backtest code, with a latency-aware backtesting engine and an automatic portfolio rebalancer. Registered copyright SW-11555/2026-CO. https://quant-ecru-seven.vercel.app/
+- WhyLine (2026): real-time anomaly detection over live Binance data for 10 crypto symbols, using rolling z-scores and a streaming Isolation Forest. https://github.com/rashcasm/WhyLine
+- Commit-Mirror (2026): a pip-installable CLI that mirrors commit metadata from private organizations to a public GitHub repo without exposing code. https://github.com/rashcasm/portfolio-check
+- Bhishi (2026): trustless chit fund on the Midnight privacy blockchain with zero-knowledge sealed bids. https://github.com/rashcasm/bhishi
+- Ekonos (2025): fractional asset ownership protocol on Solana, started as a Turbin3 capstone. https://github.com/rashcasm/ekonos-v1
+- Quill.ai (2025): Chrome extension that fills web forms with AI-generated, context-aware answers. https://github.com/rashcasm/form_fill_mini
+
+## Skills
+
+Python, SQL, Rust, C++, TypeScript, JavaScript, pandas, NumPy, backtesting, FastAPI, React, Node.js, Anchor (Solana), Git, Docker, PostgreSQL, GCP.
+
+## Recognition and community
+
+- Registered copyright SW-11555/2026-CO: QuantLabs, an NLP-based backtesting engine and portfolio rebalancer (2026)
+- Registered copyright LD-46176/2025-CO: automated job applications using a smart browser extension (2025)
+- First Position, Blockchain Nexus, IIT Kanpur (2025)
+- Second Position, Stellar Ragnarok, Nagpur (2025)
+- First Position, Raisoni Tech Hackathon, Nagpur (2024)
+- Coordinator and organizer of HacKronyX, a national-level hackathon with 3,500+ registrations (2025)
+- Speaker and instructor, "Get On-Chain" workshop for 70+ participants (2025)
+
+## Links
+
+- Website: https://www.rashmin.tech
+- Notes: https://www.rashmin.tech/notes
+- eigi.ai: https://eigi.ai
+- GitHub: https://github.com/rashcasm
+- LinkedIn: https://www.linkedin.com/in/rashminchaudhari
+- X (Twitter): https://twitter.com/rashcasm

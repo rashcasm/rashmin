@@ -1,0 +1,5 @@
+# Everyone is welcome, AI crawlers included.
+User-agent: *
+Allow: /
+
+Sitemap: https://www.rashmin.tech/sitemap.xml

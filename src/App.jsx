@@ -1,9 +1,10 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useSyncExternalStore } from "react";
 import Section from "./components/Section";
 import Entry from "./components/Entry";
 import CopyAddress from "./components/CopyAddress";
 import StatusBar from "./components/StatusBar";
 import Terms from "./components/Terms";
+import Notes from "./components/Notes";
 import {
   experiences,
   projects,
@@ -30,26 +31,34 @@ const tabs = [
 ];
 const ids = tabs.map(([id]) => id);
 
-// the tab lives in the URL hash, so links like /#work and the back button work
-const tabFromHash = () => {
+// the tab lives in the URL hash, so links like /#work and the back button work.
+// Unknown hashes (like #top) keep whatever tab is open.
+let lastTab = "about";
+const readTab = () => {
   const id = location.hash.slice(1);
-  return ids.includes(id) ? id : null;
+  if (ids.includes(id)) lastTab = id;
+  return lastTab;
 };
+const onHashChange = (cb) => {
+  addEventListener("hashchange", cb);
+  return () => removeEventListener("hashchange", cb);
+};
+// false while prerendering and hydrating, true once running in the browser
+const noop = () => () => {};
+const useHydrated = () => useSyncExternalStore(noop, () => true, () => false);
 
-function App() {
-  const [tab, setTab] = useState(() => tabFromHash() ?? "about");
+// page is "home" (the tabs) or "notes" (/notes); set by main.jsx and the prerenderer
+function App({ page = "home" }) {
+  // the prerendered HTML is built with "about"; the real hash takes over after hydration
+  const tab = useSyncExternalStore(onHashChange, readTab, () => "about");
+  const hydrated = useHydrated();
 
-  useEffect(() => {
-    const onHash = () => {
-      const id = tabFromHash();
-      if (id) setTab(id);
-    };
-    addEventListener("hashchange", onHash);
-    return () => removeEventListener("hashchange", onHash);
-  }, []);
-
-  const [, title] = tabs.find(([id]) => id === tab);
-  const n = ids.indexOf(tab) + 1;
+  // every tab is rendered so the content is in the HTML for crawlers; inactive ones are hidden
+  const panel = (id, children) => (
+    <Section key={id} n={ids.indexOf(id) + 1} title={tabs.find(([t]) => t === id)[1]} hidden={tab !== id}>
+      {children}
+    </Section>
+  );
 
   return (
     <div className="page" id="top">
@@ -73,15 +82,29 @@ function App() {
 
       <nav className="tabs" aria-label="Sections">
         {tabs.map(([id]) => (
-          <a key={id} href={`#${id}`} aria-current={tab === id ? "page" : undefined}>
+          <a
+            key={id}
+            href={page === "home" ? `#${id}` : `/#${id}`}
+            aria-current={page === "home" && tab === id ? "page" : undefined}
+          >
             {id}
           </a>
         ))}
+        <a href="/notes" aria-current={page === "notes" ? "page" : undefined}>
+          notes
+        </a>
       </nav>
 
-      <main>
-        <Section key={tab} n={n} title={title}>
-          {tab === "about" && (
+      {page === "notes" ? (
+        <main>
+          <Section n={tabs.length + 1} title="notes">
+            <Notes />
+          </Section>
+        </main>
+      ) : (
+        <main>
+          {panel(
+            "about",
             <>
               <p>
                 I’m the chief of staff intern at{" "}
@@ -111,13 +134,18 @@ function App() {
               </p>
               <p className="aside">This website will not be getting any fancier.</p>
               <p className="label">commits, last 12 months:</p>
-              <Suspense fallback={<div className="calendar" />}>
-                <Contributions />
-              </Suspense>
+              {hydrated ? (
+                <Suspense fallback={<div className="calendar" />}>
+                  <Contributions />
+                </Suspense>
+              ) : (
+                <div className="calendar" />
+              )}
             </>
           )}
 
-          {tab === "work" &&
+          {panel(
+            "work",
             experiences.map((exp) => (
               <Entry
                 key={exp.company}
@@ -134,9 +162,11 @@ function App() {
                   ))}
                 </ul>
               </Entry>
-            ))}
+            ))
+          )}
 
-          {tab === "projects" &&
+          {panel(
+            "projects",
             projects.map((p) => {
               const [first, ...rest] = p.details;
               return (
@@ -154,9 +184,11 @@ function App() {
                   )}
                 </Entry>
               );
-            })}
+            })
+          )}
 
-          {tab === "stack" && (
+          {panel(
+            "stack",
             <dl className="stack">
               {skillsCategories.map((cat) => (
                 <div key={cat.title}>
@@ -167,7 +199,8 @@ function App() {
             </dl>
           )}
 
-          {tab === "wins" && (
+          {panel(
+            "wins",
             <ul className="log">
               {achievements.map((a) => (
                 <li key={a.title}>
@@ -180,7 +213,8 @@ function App() {
             </ul>
           )}
 
-          {tab === "talks" && (
+          {panel(
+            "talks",
             <ul className="log">
               {community.map((c) => (
                 <li key={c.event}>
@@ -194,9 +228,10 @@ function App() {
             </ul>
           )}
 
-          {tab === "values" && <Terms />}
+          {panel("values", <Terms />)}
 
-          {tab === "contact" && (
+          {panel(
+            "contact",
             <>
               <p>Email is best. I read everything.</p>
               <dl className="stack">
@@ -220,8 +255,8 @@ function App() {
               <CopyAddress address={solanaAddress} />
             </>
           )}
-        </Section>
-      </main>
+        </main>
+      )}
 
       <footer>
         <p>
