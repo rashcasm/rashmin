@@ -65,15 +65,6 @@ function App({ page = "home" }) {
       <StatusBar />
 
       <header className="masthead">
-        <figure className="photo">
-          <img
-            src="/min-264.jpg"
-            alt="Rashmin Chaudhari - Software Engineer (not Rashmi Chaudhari)"
-            width="120"
-            height="120"
-          />
-          <figcaption>fig. 1 — me</figcaption>
-        </figure>
         <h1>Rashmin Chaudhari</h1>
         <p className="tagline">
           chief of staff / quant infra / ai

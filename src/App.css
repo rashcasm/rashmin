@@ -99,35 +99,6 @@ code {
   margin: 2.5rem 0 1.5rem;
 }
 
-.masthead::after {
-  content: "";
-  display: block;
-  clear: both;
-}
-
-.photo {
-  float: right;
-  width: 132px;
-  margin: 0 0 1rem 1.25rem;
-  padding: 5px 5px 2px;
-  background: #fff;
-  border: 1px solid var(--ink);
-  transform: rotate(2deg);
-}
-
-.photo img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1;
-  object-fit: cover;
-}
-
-.photo figcaption {
-  font: 11px/1.8 var(--mono);
-  text-align: center;
-}
-
 h1 {
   font-size: clamp(2.25rem, 8vw, 3.25rem);
   line-height: 1;
@@ -368,11 +339,6 @@ footer p {
 
   .masthead {
     margin: 1.75rem 0 0.75rem;
-  }
-
-  .photo {
-    width: 96px;
-    margin-left: 0.75rem;
   }
 
   .tabs {
